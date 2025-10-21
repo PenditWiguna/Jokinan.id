@@ -9,6 +9,40 @@
       html {
         scroll-behavior: smooth;
       }
+      /* Fixed/proportional card utilities */
+      .card-prop {
+        width: 100%;
+        /* default aspect ratio 4:5 (w:h) -> 80% height of width */
+        aspect-ratio: 4 / 5;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Fallback for browsers that don't support aspect-ratio */
+      .card-prop .card-content {
+        width: 100%;
+        /* Use padding-top trick to maintain ratio: (h/w)*100% = (5/4)*100% = 125% */
+        position: relative;
+        padding-top: 125%;
+      }
+      .card-prop .card-inner {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Make image containers cover while preserving aspect */
+      .card-media {
+        width: 100%;
+        height: 40%;
+        object-fit: cover;
+      }
+
+      /* Ensure card actions stay at bottom */
+      .card-footer {
+        margin-top: auto;
+      }
       .fade-in {
         animation: fadeIn 1s ease-in-out;
       }
@@ -79,67 +113,96 @@
       <h2 class="text-2xl font-bold mb-12">Layanan Kami</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
         <div
-          class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition transform hover:-translate-y-2"
+          class="card-prop bg-white rounded-2xl shadow hover:shadow-lg transition transform hover:-translate-y-2 overflow-hidden"
         >
-          <h3 class="font-semibold text-lg mb-2 text-blue-600">
-            Joki Tugas Kuliah
-          </h3>
-          <p class="text-sm text-gray-600 mb-4">
-            Pengerjaan makalah, laporan, dan presentasi sesuai instruksi Anda.
-          </p>
-          <a
-            href="https://wa.me/6281529433861?text=Halo%20JokiPro%2C%20saya%20ingin%20order%20Joki%20Tugas%20Kuliah"
-            target="_blank"
-            class="inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition"
-            >Order Sekarang</a
-          >
+          <div class="card-content">
+            <div class="card-inner p-6">
+              <h3 class="font-semibold text-lg mb-2 text-blue-600">
+                Joki Tugas Kuliah
+              </h3>
+              <p class="text-sm text-gray-600 mb-4">
+                Pengerjaan makalah, laporan, dan presentasi sesuai instruksi
+                Anda.
+              </p>
+              <div class="card-footer">
+                <a
+                  href="https://wa.me/6281529433861?text=Halo%20JokiPro%2C%20saya%20ingin%20order%20Joki%20Tugas%20Kuliah"
+                  target="_blank"
+                  class="inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition"
+                  >Order Sekarang</a
+                >
+              </div>
+            </div>
+          </div>
         </div>
         <div
-          class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition transform hover:-translate-y-2"
+          class="card-prop bg-white rounded-2xl shadow hover:shadow-lg transition transform hover:-translate-y-2 overflow-hidden"
         >
-          <h3 class="font-semibold text-lg mb-2 text-blue-600">Joki Skripsi</h3>
-          <p class="text-sm text-gray-600 mb-4">
-            Bantuan penyusunan skripsi dari BAB 1–BAB 5 dengan revisi lengkap.
-          </p>
-          <a
-            href="https://wa.me/6281529433861?text=Halo%20JokiPro%2C%20saya%20ingin%20order%20Joki%20Skripsi"
-            target="_blank"
-            class="inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition"
-            >Order Sekarang</a
-          >
+          <div class="card-content">
+            <div class="card-inner p-6">
+              <h3 class="font-semibold text-lg mb-2 text-blue-600">
+                Joki Skripsi
+              </h3>
+              <p class="text-sm text-gray-600 mb-4">
+                Bantuan penyusunan skripsi dari BAB 1–BAB 5 dengan revisi
+                lengkap.
+              </p>
+              <div class="card-footer">
+                <a
+                  href="https://wa.me/6281529433861?text=Halo%20JokiPro%2C%20saya%20ingin%20order%20Joki%20Skripsi"
+                  target="_blank"
+                  class="inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition"
+                  >Order Sekarang</a
+                >
+              </div>
+            </div>
+          </div>
         </div>
         <div
-          class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition transform hover:-translate-y-2"
+          class="card-prop bg-white rounded-2xl shadow hover:shadow-lg transition transform hover:-translate-y-2 overflow-hidden"
         >
-          <h3 class="font-semibold text-lg mb-2 text-blue-600">
-            Project Pemrograman
-          </h3>
-          <p class="text-sm text-gray-600 mb-4">
-            Pembuatan aplikasi web, mobile, atau sistem informasi sesuai
-            kebutuhan.
-          </p>
-          <a
-            href="https://wa.me/6281529433861?text=Halo%20JokiPro%2C%20saya%20ingin%20order%20Project%20Pemrograman"
-            target="_blank"
-            class="inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition"
-            >Order Sekarang</a
-          >
+          <div class="card-content">
+            <div class="card-inner p-6">
+              <h3 class="font-semibold text-lg mb-2 text-blue-600">
+                Project Pemrograman
+              </h3>
+              <p class="text-sm text-gray-600 mb-4">
+                Pembuatan aplikasi web, mobile, atau sistem informasi sesuai
+                kebutuhan.
+              </p>
+              <div class="card-footer">
+                <a
+                  href="https://wa.me/6281529433861?text=Halo%20JokiPro%2C%20saya%20ingin%20order%20Project%20Pemrograman"
+                  target="_blank"
+                  class="inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition"
+                  >Order Sekarang</a
+                >
+              </div>
+            </div>
+          </div>
         </div>
         <div
-          class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition transform hover:-translate-y-2"
+          class="card-prop bg-white rounded-2xl shadow hover:shadow-lg transition transform hover:-translate-y-2 overflow-hidden"
         >
-          <h3 class="font-semibold text-lg mb-2 text-blue-600">
-            Desain & UI/UX
-          </h3>
-          <p class="text-sm text-gray-600 mb-4">
-            Desain modern menggunakan Figma, siap implementasi dan presentasi.
-          </p>
-          <a
-            href="https://wa.me/6281529433861?text=Halo%20JokiPro%2C%20saya%20ingin%20order%20Desain%20UI%20UX"
-            target="_blank"
-            class="inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition"
-            >Order Sekarang</a
-          >
+          <div class="card-content">
+            <div class="card-inner p-6">
+              <h3 class="font-semibold text-lg mb-2 text-blue-600">
+                Desain & UI/UX
+              </h3>
+              <p class="text-sm text-gray-600 mb-4">
+                Desain modern menggunakan Figma, siap implementasi dan
+                presentasi.
+              </p>
+              <div class="card-footer">
+                <a
+                  href="https://wa.me/6281529433861?text=Halo%20JokiPro%2C%20saya%20ingin%20order%20Desain%20UI%20UX"
+                  target="_blank"
+                  class="inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition"
+                  >Order Sekarang</a
+                >
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -152,123 +215,284 @@
       >
         <!-- Card 1 -->
         <div
-          class="bg-white rounded-2xl shadow-lg p-6 hover:-translate-y-2 transition transform text-center"
+          class="card-prop bg-white rounded-2xl shadow-lg hover:-translate-y-2 transition transform text-center overflow-hidden"
         >
-          <h3 class="text-lg font-semibold text-blue-600 mb-2">Tugas Kuliah</h3>
-          <p class="text-gray-500 mb-4">Mulai dari</p>
-          <p class="text-3xl font-bold text-gray-800 mb-4">Rp 50K</p>
-          <ul class="text-sm text-gray-600 mb-6 space-y-1">
-            <li>• Makalah & Laporan</li>
-            <li>• Waktu fleksibel</li>
-            <li>• Garansi revisi</li>
-          </ul>
-          <a
-            href="https://wa.me/6281529433861?text=Halo%2C%20saya%20ingin%20order%20Joki%20Tugas%20Kuliah"
-            target="_blank"
-            class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition"
-          >
-            Order
-          </a>
+          <div class="card-content">
+            <div class="card-inner p-6">
+              <h3 class="text-lg font-semibold text-blue-600 mb-2">
+                Tugas Kuliah
+              </h3>
+              <p class="text-gray-500 mb-4">Mulai dari</p>
+              <p class="text-3xl font-bold text-gray-800 mb-4">Rp 50K</p>
+              <ul class="text-sm text-gray-600 mb-6 space-y-1">
+                <li>• Makalah & Laporan</li>
+                <li>• Waktu fleksibel</li>
+                <li>• Garansi revisi</li>
+              </ul>
+              <div class="card-footer">
+                <a
+                  href="https://wa.me/6281529433861?text=Halo%2C%20saya%20ingin%20order%20Joki%20Tugas%20Kuliah"
+                  target="_blank"
+                  class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition"
+                  >Order</a
+                >
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Card 2 -->
         <div
-          class="bg-white rounded-2xl shadow-lg p-6 hover:-translate-y-2 transition transform text-center"
+          class="card-prop bg-white rounded-2xl shadow-lg hover:-translate-y-2 transition transform text-center overflow-hidden"
         >
-          <h3 class="text-lg font-semibold text-blue-600 mb-2">
-            Skripsi Lengkap
-          </h3>
-          <p class="text-gray-500 mb-4">Mulai dari</p>
-          <p class="text-3xl font-bold text-gray-800 mb-4">Rp 1.5JT</p>
-          <ul class="text-sm text-gray-600 mb-6 space-y-1">
-            <li>• BAB 1–BAB 5</li>
-            <li>• Termasuk revisi</li>
-            <li>• Gratis konsultasi</li>
-          </ul>
-          <a
-            href="https://wa.me/6281529433861?text=Halo%2C%20saya%20ingin%20order%20Joki%20Skripsi"
-            target="_blank"
-            class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition"
-          >
-            Order
-          </a>
+          <div class="card-content">
+            <div class="card-inner p-6">
+              <h3 class="text-lg font-semibold text-blue-600 mb-2">
+                Skripsi Lengkap
+              </h3>
+              <p class="text-gray-500 mb-4">Mulai dari</p>
+              <p class="text-3xl font-bold text-gray-800 mb-4">Rp 1.5JT</p>
+              <ul class="text-sm text-gray-600 mb-6 space-y-1">
+                <li>• BAB 1–BAB 5</li>
+                <li>• Termasuk revisi</li>
+                <li>• Gratis konsultasi</li>
+              </ul>
+              <div class="card-footer">
+                <a
+                  href="https://wa.me/6281529433861?text=Halo%2C%20saya%20ingin%20order%20Joki%20Skripsi"
+                  target="_blank"
+                  class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition"
+                  >Order</a
+                >
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Card 3 -->
         <div
-          class="bg-white rounded-2xl shadow-lg p-6 hover:-translate-y-2 transition transform text-center"
+          class="card-prop bg-white rounded-2xl shadow-lg hover:-translate-y-2 transition transform text-center overflow-hidden"
         >
-          <h3 class="text-lg font-semibold text-blue-600 mb-2">
-            Project Pemrograman
-          </h3>
-          <p class="text-gray-500 mb-4">Mulai dari</p>
-          <p class="text-3xl font-bold text-gray-800 mb-4">Rp 250K</p>
-          <ul class="text-sm text-gray-600 mb-6 space-y-1">
-            <li>• Web / Android</li>
-            <li>• Full source code</li>
-            <li>• Panduan lengkap</li>
-          </ul>
-          <a
-            href="https://wa.me/6281529433861?text=Halo%2C%20saya%20ingin%20order%20Project%20Pemrograman"
-            target="_blank"
-            class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition"
-          >
-            Order
-          </a>
+          <div class="card-content">
+            <div class="card-inner p-6">
+              <h3 class="text-lg font-semibold text-blue-600 mb-2">
+                Project Pemrograman
+              </h3>
+              <p class="text-gray-500 mb-4">Mulai dari</p>
+              <p class="text-3xl font-bold text-gray-800 mb-4">Rp 250K</p>
+              <ul class="text-sm text-gray-600 mb-6 space-y-1">
+                <li>• Web / Android / C / Pyhton</li>
+                <li>• Full source code</li>
+                <li>• Panduan lengkap</li>
+              </ul>
+              <div class="card-footer">
+                <a
+                  href="https://wa.me/6281529433861?text=Halo%2C%20saya%20ingin%20order%20Project%20Pemrograman"
+                  target="_blank"
+                  class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition"
+                  >Order</a
+                >
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Card 4 -->
         <div
-          class="bg-white rounded-2xl shadow-lg p-6 hover:-translate-y-2 transition transform text-center"
+          class="card-prop bg-white rounded-2xl shadow-lg hover:-translate-y-2 transition transform text-center overflow-hidden"
         >
-          <h3 class="text-lg font-semibold text-blue-600 mb-2">Desain UI/UX</h3>
-          <p class="text-gray-500 mb-4">Mulai dari</p>
-          <p class="text-3xl font-bold text-gray-800 mb-4">Rp 250K</p>
-          <ul class="text-sm text-gray-600 mb-6 space-y-1">
-            <li>• Desain Figma</li>
-            <li>• Interaktif & modern</li>
-            <li>• Siap implementasi</li>
-          </ul>
-          <a
-            href="https://wa.me/6281529433861?text=Halo%2C%20saya%20ingin%20order%20Desain%20UI%20UX"
-            target="_blank"
-            class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition"
-          >
-            Order
-          </a>
+          <div class="card-content">
+            <div class="card-inner p-6">
+              <h3 class="text-lg font-semibold text-blue-600 mb-2">
+                Desain UI/UX
+              </h3>
+              <p class="text-gray-500 mb-4">Mulai dari</p>
+              <p class="text-3xl font-bold text-gray-800 mb-4">Rp 250K</p>
+              <ul class="text-sm text-gray-600 mb-6 space-y-1">
+                <li>• Desain Figma</li>
+                <li>• Interaktif & modern</li>
+                <li>• Siap implementasi</li>
+              </ul>
+              <div class="card-footer">
+                <a
+                  href="https://wa.me/6281529433861?text=Halo%2C%20saya%20ingin%20order%20Desain%20UI%20UX"
+                  target="_blank"
+                  class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition"
+                  >Order</a
+                >
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Project -->
-    <section id="project" class="py-20 text-center fade-in">
-      <h2 class="text-2xl font-bold mb-10">Project Kami</h2>
-      <div
-        class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto px-6"
-      >
-        <div
-          class="bg-white rounded-2xl shadow hover:shadow-xl overflow-hidden transform hover:-translate-y-2 transition"
-        >
-          <img src="1.png" class="w-full" alt="" />
-          <p class="p-4 text-gray-700">Sistem Informasi Perpustakaan</p>
-        </div>
-        <div
-          class="bg-white rounded-2xl shadow hover:shadow-xl overflow-hidden transform hover:-translate-y-2 transition"
-        >
-          <img src="1.png" class="w-full" alt="" />
-          <p class="p-4 text-gray-700">Aplikasi Kasir Minimarket</p>
-        </div>
-        <div
-          class="bg-white rounded-2xl shadow hover:shadow-xl overflow-hidden transform hover:-translate-y-2 transition"
-        >
-          <img src="1.png" class="w-full" alt="" />
-          <p class="p-4 text-gray-700">Website Travel & Booking</p>
-        </div>
-        <div
-          class="bg-white rounded-2xl shadow hover:shadow-xl overflow-hidden transform hover:-translate-y-2 transition"
-        >
-          <img src="1.png" class="w-full" alt="" />
-          <p class="p-4 text-gray-700">Dashboard Analisis Penjualan</p>
+    <!-- Project Section -->
+    <section id="project" class="py-20 bg-white">
+      <div class="max-w-6xl mx-auto text-center px-6">
+        <h2 class="text-3xl font-bold mb-10">Project Kami</h2>
+        <div class="grid md:grid-cols-4 sm:grid-cols-2 gap-6">
+          <!-- Card Project -->
+          <div
+            class="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"
+          >
+            <img
+              src="surat.jpg"
+              alt="Sistem Informasi Perpustakaan"
+              class="w-full h-56 object-cover transform group-hover:scale-110 transition duration-500"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-4 text-left"
+            >
+              <h3 class="text-white font-semibold text-lg">
+                Sistem Informasi manajemen surat
+              </h3>
+              <p class="text-gray-200 text-sm">
+                Aplikasi manajemen surat masuk dan keluar secara otomastis.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"
+          >
+            <img
+              src="travel.jpg"
+              alt="Aplikasi Kasir Minimarket"
+              class="w-full h-56 object-cover transform group-hover:scale-110 transition duration-500"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-4 text-left"
+            >
+              <h3 class="text-white font-semibold text-lg">
+                Website Travel & Booking
+              </h3>
+              <p class="text-gray-200 text-sm">
+                Website reservasi Travel dan destinasi wisata.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"
+          >
+            <img
+              src="ar1.png"
+              alt="Aplikasi Augmented Reality (AR)"
+              class="w-full h-56 object-cover transform group-hover:scale-110 transition duration-500"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-4 text-left"
+            >
+              <h3 class="text-white font-semibold text-lg">
+                Aplikasi Augmented Reality (AR)
+              </h3>
+              <p class="text-gray-200 text-sm">
+                Aplikasi berbasis AR untuk pengalaman interaktif menggunakan
+                kamera.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"
+          >
+            <img
+              src="penjualan.jpg"
+              alt="Dashboard Analisis Penjualan"
+              class="w-full h-56 object-cover transform group-hover:scale-110 transition duration-500"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-4 text-left"
+            >
+              <h3 class="text-white font-semibold text-lg">
+                Dashboard Analisis Penjualan
+              </h3>
+              <p class="text-gray-200 text-sm">
+                Visualisasi data penjualan berbasis web dengan chart interaktif.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"
+          >
+            <img
+              src="analisis.png"
+              alt="Analisis dan Perancangan Sistem"
+              class="w-full h-56 object-cover transform group-hover:scale-110 transition duration-500"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-4 text-left"
+            >
+              <h3 class="text-white font-semibold text-lg">
+                Analisis dan Perancangan Sistem
+              </h3>
+              <p class="text-gray-200 text-sm">
+                Melakukan analisis kebutuhan dan perancangan sistem informasi
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"
+          >
+            <img
+              src="pasar.jpg"
+              alt="Website manajemen pasar"
+              class="w-full h-56 object-cover transform group-hover:scale-110 transition duration-500"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-4 text-left"
+            >
+              <h3 class="text-white font-semibold text-lg">
+                Website manajemen pasar dan pembayaran retribusi
+              </h3>
+              <p class="text-gray-200 text-sm">
+                Website untuk mengelola data pedagang, kios, dan pembayaran
+                retribusi pasar.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"
+          >
+            <img
+              src="ui.jpg"
+              alt="UI/UX Design Project"
+              class="w-full h-56 object-cover transform group-hover:scale-110 transition duration-500"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-4 text-left"
+            >
+              <h3 class="text-white font-semibold text-lg">
+                UI/UX Design Project
+              </h3>
+              <p class="text-gray-200 text-sm">
+                UI/UX design untuk aplikasi mobile dan web menggunakan Figma.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition duration-500"
+          >
+            <img
+              src="tengah.png"
+              alt="Poster"
+              class="w-full h-56 object-cover transform group-hover:scale-110 transition duration-500"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-4 text-left"
+            >
+              <h3 class="text-white font-semibold text-lg">Poster Design</h3>
+              <p class="text-gray-200 text-sm">
+                Poster design untuk keperluan promosi dan event.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
